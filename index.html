@@ -7,14 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <script>
-/* ============================================================
-   OpenAI integration note
-   ============================================================
-   This page calls POST /api/openai, which must be provided by your backend
-   (serverless function, Express route, etc.). Do NOT put your OpenAI API key
-   in this HTML file or any browser-delivered JavaScript.
-*/
-
 // Suppress PDF.js fake-worker warning BEFORE the library loads
 // Web workers are blocked by CSP in sandboxed environments — this is expected/harmless
 const _origWarn = console.warn.bind(console);
@@ -2130,7 +2122,7 @@ console.error = (...args) => {
 </main>
 
 <footer class="version-footer">
-  v1.4c · FOLIO CV Analyser · Built with OpenAI
+  v1.4c · FOLIO CV Analyser · Built with ChatGPT AI
 </footer>
 
 
@@ -2796,7 +2788,7 @@ Respond with ONLY valid JSON, no markdown fences, no extra text:
 }`;
 
   try {
-    const resp = await fetch('/api/openai', {
+    const resp = await fetch('/api/chatgpt', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -3156,7 +3148,7 @@ Respond with ONLY valid JSON, no markdown:
 }`;
 
   try {
-    const resp = await fetch('/api/openai', {
+    const resp = await fetch('/api/chatgpt', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -3356,7 +3348,7 @@ Return ONLY valid JSON, no markdown, no extra text:
 }`;
 
   try {
-    const resp = await fetch('/api/openai', {
+    const resp = await fetch('/api/chatgpt', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -3458,7 +3450,7 @@ Respond ONLY with valid JSON, no markdown:
 {"delta":<signed integer, e.g. +8 or -3>,"new_score":<integer 0-100>,"grade":"<Strong Match|Good Match|Partial Match|Weak Match|Poor Match>","reason":"<one sentence on the biggest change>"}`;
 
   try {
-    const resp = await fetch('/api/openai', {
+    const resp = await fetch('/api/chatgpt', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt, systemInstruction: 'Output raw JSON only. No markdown, no extra text.' })
